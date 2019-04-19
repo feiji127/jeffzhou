@@ -66,7 +66,7 @@ namespace EFarming.Web
                 c.SwaggerDoc("v1", new Info
                 {
                     Version = "v1.0.0",
-                    Title = "Jeff.Zhou API",
+                    Title = "EFarming API",
                     Description = "框架说明文档(请先使用登录接口换取token，在Authorize按钮处输入获取到的token以测试其他接口)",
                     //TermsOfService = "None",
                     Contact = new Swashbuckle.AspNetCore.Swagger.Contact { Name = "Jeff.Zhou", Email = "feiji2312@sina.com", Url = "" }
@@ -85,10 +85,10 @@ namespace EFarming.Web
                 #region Token绑定到ConfigureServices
                 //添加header验证信息
                 //c.OperationFilter<SwaggerHeader>();
-                var security = new Dictionary<string, IEnumerable<string>> { { "Jeff.Zhou", new string[] { } }, };
+                var security = new Dictionary<string, IEnumerable<string>> { { "EFarming", new string[] { } }, };
                 c.AddSecurityRequirement(security);
                 //方案名称“Jeff.Zhou”可自定义，上下一致即可
-                c.AddSecurityDefinition("Jeff.Zhou", new ApiKeyScheme
+                c.AddSecurityDefinition("EFarming", new ApiKeyScheme
                 {
                     Description = "JWT授权(数据将在请求头中进行传输) 直接在下框中输入Bearer {token}（注意两者之间是一个空格）\"",
                     Name = "Authorization",//jwt默认的参数名称
@@ -120,7 +120,7 @@ namespace EFarming.Web
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Jeff Zhou API V1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "EFarming API V1");
                 //c.RoutePrefix = "swagger";
             });
 
